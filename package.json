@@ -1,0 +1,39 @@
+{
+  "name": "scully-blastoise",
+  "scripts": {
+    "dev-start": "webpack serve -c ./config/webpack.config.js --node-env development",
+    "build-bundle": "webpack -c ./config/webpack.config.js --node-env production",
+    "correct:build-bundle-linkage": "node ./config/correct-prod-asset-linkage.js",
+    "prod-build": "yarn run build-bundle && yarn run correct:build-bundle-linkage"
+  },
+  "packageManager": "yarn@3.1.0",
+  "version": "0.0.2",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.2",
+    "@types/react": "^17.0.36",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^10.0.0",
+    "css-loader": "^6.5.1",
+    "css-minimizer-webpack-plugin": "^3.1.4",
+    "handlebars-loader": "^1.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "less-loader": "^10.2.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "react-refresh": "^0.11.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
