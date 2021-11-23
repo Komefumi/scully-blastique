@@ -13,33 +13,49 @@ module.exports = {
     const presets = ["env", "react", "typescript"].map(
       (suffix) => `@babel/preset-${suffix}`
     );
-    presets.push("react-refresh/babel");
+    const plugins = ["react-refresh/babel"]
 
-    const generateRule = (test, presets, custom = {}) => {
+    const generateRule = (test, presets, plugins=[], custom = {
+      babelPresetsLevel: [],
+      babelPluginsLevel: [],
+      babelOptionsLevel: {},
+      useLevel: {},
+      baseLevel: {},
+    }) => {
       return {
         test,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: [...presets, ...custom.babelPresetsLevel],
-            ...custom.babelOptionsLevel,
+            presets: [
+              ...presets,
+              // ...(custom?.babelPresetsLevel || [])
+            ],
+            plugins: [
+              ...plugins,
+              // ...(custom?.babelPluginsLevel || []),
+            ],
+            // ...(custom?.babelOptionsLevel || {}),
           },
-          ...custom.useLevel,
+          // ...(custom?.useLevel || {}),
         },
-        ...custom.baseLevel,
+        // ...(custom?.baseLevel || {}),
       };
     };
+    // console.log([...presets.slice(0, 3), !isProd && presets[3]].filter(Boolean));
     return [
-      generateRule(/\.js$/, presets.slice(0, 1)),
+      generateRule(/\.js$/, presets.slice(0, 1), []),
       generateRule(
         /\.jsx$/,
-        [presets.slice(0, 2), !isProd && presets[3]].filter(Boolean)
+        [...presets.slice(0, 2)],
+        [!isProd && presets[0]].filter(Boolean),
       ),
-      generateRule(/\.ts$/, [presets[0], presets[2]]),
+      generateRule(/\.ts$/, [presets[0], presets[2]], []),
       generateRule(
         /\.tsx$/,
-        [presets.slice(0, 3), !isProd && presets[3]].filter(Boolean)
+        [...presets.slice(0, 3)],
+        [!isProd && plugins[0]].filter(Boolean),
       ),
     ];
   },
@@ -50,8 +66,8 @@ module.exports = {
       ...moreLoaders,
     ];
     const generateRule = (ext, moreLoaders = []) => {
-      const regularStyleRegex = new RegExp(`\.${ext}$`, "i");
-      const cssModuleRegex = new RegExp(`\.module\.${ext}$`, "i");
+      const regularStyleRegex = new RegExp(`\\.${ext}$`, "i");
+      const cssModuleRegex = new RegExp(`\\.module\\.${ext}$`, "i");
       return [
         {
           test: regularStyleRegex,
@@ -64,6 +80,6 @@ module.exports = {
         },
       ];
     };
-    return [generateRule("css"), generateRule("less", ["less-loader"])];
+    return [...generateRule("css"), ...generateRule("less", ["less-loader"])];
   },
 };

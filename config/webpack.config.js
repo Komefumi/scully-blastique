@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -31,17 +31,21 @@ const commonConfig = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "webpages/**/*.html", to: "[name].html" }],
+      patterns: [{ from: "src/webpages/**/*.html", to: "[name].html" }],
     }),
   ],
-}
+};
+
 const devConfig = {
   output: {
     filename: "[name].bundle.js",
   },
   devtool: "inline-source-map",
   devServer: {
-    static: "./dist",
+    devMiddleware: {
+      writeToDisk: true,
+    },
+    static: distDir,
     hot: true,
   },
   module: {
