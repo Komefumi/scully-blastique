@@ -26,8 +26,9 @@ const commonConfig = {
   devtool: "source-map",
   resolve: {
     alias: {
-      "@root": path.resolve(__dirname, "src"),
+      "@src": path.resolve(__dirname, "..", "src"),
     },
+    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
   plugins: [
     new CopyPlugin({
