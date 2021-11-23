@@ -1,4 +1,12 @@
+const path = require("path");
+const fs = require("fs");
+
+// @ts-ignore
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// @ts-ignore
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const { webpageDir } = require("./paths");
 
 const cssModuleLoaderRule = {
   loader: "css-loader",
@@ -9,12 +17,22 @@ const cssModuleLoaderRule = {
 };
 
 module.exports = {
+  generateDevWebpageRules: () => {
+    const webpageNames = fs.readdirSync(webpageDir);
+    return webpageNames.map((pageName) => {
+      return new HtmlWebpackPlugin({
+        template: path.join(webpageDir, pageName),
+      });
+    });
+  },
+  // @ts-ignore
   generateScriptRules: (isProd) => {
     const presets = ["env", "react", "typescript"].map(
       (suffix) => `@babel/preset-${suffix}`
     );
     const plugins = ["react-refresh/babel"]
 
+    // @ts-ignore
     const generateRule = (test, presets, plugins=[], custom = {
       babelPresetsLevel: [],
       babelPluginsLevel: [],
@@ -59,12 +77,15 @@ module.exports = {
       ),
     ];
   },
+  // @ts-ignore
   generateStyleRules: (isProd) => {
+    // @ts-ignore
     const generateUse = (forCSSModules = false, moreLoaders = []) => [
       isProd ? MiniCssExtractPlugin.loader : "style-loader",
       forCSSModules ? cssModuleLoaderRule : "css-loader",
       ...moreLoaders,
     ];
+    // @ts-ignore
     const generateRule = (ext, moreLoaders = []) => {
       const regularStyleRegex = new RegExp(`\\.${ext}$`, "i");
       const cssModuleRegex = new RegExp(`\\.module\\.${ext}$`, "i");

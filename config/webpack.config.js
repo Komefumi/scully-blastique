@@ -2,18 +2,22 @@ const path = require("path");
 const fs = require("fs");
 
 const { merge } = require("webpack-merge");
+// @ts-ignore
 const CopyPlugin = require("copy-webpack-plugin");
+// @ts-ignore
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// @ts-ignore
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const { entryDir, distDir } = require("./paths");
-const { generateStyleRules, generateScriptRules } = require("./generate-rules");
+const { generateDevWebpageRules, generateStyleRules, generateScriptRules } = require("./generate-rules");
 
 const isDev = process.env.NODE_ENV === "development";
 const entryFiles = fs.readdirSync(entryDir);
 const entryFileNameToPath = entryFiles.reduce((accum, currentFile) => {
   const fileName = currentFile.split(".")[0];
+  // @ts-ignore
   accum[fileName] = path.join(entryDir, currentFile);
   return accum;
 }, {});
@@ -30,11 +34,6 @@ const commonConfig = {
     },
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
-  plugins: [
-    new CopyPlugin({
-      patterns: [{ from: "src/webpages/**/*.html", to: "[name].html" }],
-    }),
-  ],
 };
 
 const devConfig = {
@@ -57,6 +56,7 @@ const devConfig = {
   },
   plugins: [
     new ReactRefreshWebpackPlugin(),
+    ...generateDevWebpageRules(),
   ],
 };
 const prodConfig = {
@@ -67,6 +67,9 @@ const prodConfig = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "src/webpages/**/*.html", to: "[name].html" }],
     }),
   ],
   module: {
@@ -84,5 +87,6 @@ const prodConfig = {
 
 const toMergeWithConfig = isDev ? devConfig : prodConfig;
 
+// @ts-ignore
 module.exports = merge(commonConfig, toMergeWithConfig);
 
