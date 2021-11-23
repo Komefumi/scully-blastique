@@ -1,11 +1,14 @@
 import React from "react";
 import { render as DOMRender } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import HelloWorld from "@src/scripts/components/HelloWorld";
+import IndexApp from "@apps/IndexApp";
 
-import "../../styling/index.less";
+import "@styling/index.less";
 
 DOMRender(
-  <HelloWorld />,
+  <BrowserRouter>
+    <IndexApp />
+  </BrowserRouter>,
   document.getElementById("entry"),
 );

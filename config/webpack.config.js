@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const { entryDir, distDir } = require("./paths");
+const { srcDir, distDir, entryDir, scriptsDir, componentsDir, pagesDir,  appsDir } = require("./paths");
 const { generateDevWebpageRules, generateStyleRules, generateScriptRules } = require("./generate-rules");
 
 const isDev = process.env.NODE_ENV === "development";
@@ -31,9 +31,20 @@ const commonConfig = {
   resolve: {
     alias: {
       "@src": path.resolve(__dirname, "..", "src"),
+      "@js": scriptsDir,
+      "@entry": entryDir,
+      "@components": componentsDir,
+      "@pages": pagesDir,
+      "@apps": appsDir,
+      "@styling": path.resolve(srcDir, "styling"),
     },
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: "src/webpages/**/*.html", to: "[name].html" }],
+    })
+  ],
 };
 
 const devConfig = {
@@ -42,6 +53,7 @@ const devConfig = {
   },
   devtool: "inline-source-map",
   devServer: {
+    historyApiFallback: true,
     devMiddleware: {
       writeToDisk: true,
     },
@@ -56,7 +68,6 @@ const devConfig = {
   },
   plugins: [
     new ReactRefreshWebpackPlugin(),
-    ...generateDevWebpageRules(),
   ],
 };
 const prodConfig = {
@@ -67,9 +78,6 @@ const prodConfig = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
-    }),
-    new CopyPlugin({
-      patterns: [{ from: "src/webpages/**/*.html", to: "[name].html" }],
     }),
   ],
   module: {
