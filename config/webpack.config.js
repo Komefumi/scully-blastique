@@ -23,7 +23,7 @@ const commonConfig = {
   output: {
     path: distDir,
   },
-  devtool: "soucemap",
+  devtool: "source-map",
   resolve: {
     alias: {
       "@root": path.resolve(__dirname, "src"),
