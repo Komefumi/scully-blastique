@@ -48,6 +48,14 @@ const commonConfig = {
     },
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        type: "asset/resource",
+      },
+    ],
+  },
   plugins: [
     new CopyPlugin({
       patterns: [{ from: "src/webpages/**/*.html", to: "[name].html" }],
