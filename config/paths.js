@@ -1,11 +1,13 @@
 const path = require("path");
 
 const srcDir = path.join(__dirname, "..", "src");
+const assetsDir = path.join(srcDir, "assets");
 const scriptsDir = path.join(srcDir, "scripts");
 
 module.exports = {
   srcDir,
   scriptsDir,
+  assetsDir,
   entryDir: path.join(scriptsDir, "entry"),
   componentsDir: path.join(scriptsDir, "components"),
   pagesDir: path.join(scriptsDir, "pages"),

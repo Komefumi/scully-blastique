@@ -12,8 +12,9 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 
 const {
   srcDir, distDir, entryDir,
-  scriptsDir, componentsDir, pagesDir,
-  layoutsDir, typesDir, appsDir
+  scriptsDir, assetsDir, componentsDir,
+  pagesDir, layoutsDir, typesDir,
+  appsDir,
 } = require("./paths");
 const { generateDevWebpageRules, generateStyleRules, generateScriptRules } = require("./generate-rules");
 
@@ -35,6 +36,7 @@ const commonConfig = {
   resolve: {
     alias: {
       "@src": path.resolve(__dirname, "..", "src"),
+      "@assets": assetsDir,
       "@js": scriptsDir,
       "@entry": entryDir,
       "@components": componentsDir,
