@@ -9,6 +9,8 @@ module.exports = {
   entryDir: path.join(scriptsDir, "entry"),
   componentsDir: path.join(scriptsDir, "components"),
   pagesDir: path.join(scriptsDir, "pages"),
+  layoutsDir: path.join(scriptsDir, "layouts"),
+  typesDir: path.join(scriptsDir, "types"),
   appsDir: path.join(scriptsDir, "apps"),
   distDir: path.join(__dirname, "..", "dist"),
   webpageDir: path.join(__dirname, "..", "src", "webpages"),

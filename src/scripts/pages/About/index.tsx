@@ -1,7 +1,12 @@
 import React from "react";
 
-const About = () => {
-  return (<div>About - Page</div>);
+import PublicHomeLayout from "@layouts/PublicHome";
+
+export default () => {
+  return (
+    <PublicHomeLayout>
+      <div>About - Page</div>
+    </PublicHomeLayout>
+  );
 };
 
-export default About;

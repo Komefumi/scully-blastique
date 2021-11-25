@@ -1,7 +1,11 @@
 import React from "react";
 
-const Home = () => {
-  return (<div>Home - Page</div>);
-};
+import PublicHomeLayout from "@layouts/PublicHome";
 
-export default Home;
+export default () => {
+  return (
+    <PublicHomeLayout>
+      <div>Home - Page</div>
+    </PublicHomeLayout>
+  );
+};

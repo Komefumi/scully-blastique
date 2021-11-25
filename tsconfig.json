@@ -8,6 +8,8 @@
       "@apps/*": ["src/scripts/apps/*"],
       "@components/*": ["src/scripts/components/*"],
       "@pages/*": ["src/scripts/pages/*"],
+      "@layouts/*": ["src/scripts/layouts/*"],
+      "@my-types/*": ["src/scripts/types/*"],
       "@styling/*": ["src/styling/*"]
     },
 

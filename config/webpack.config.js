@@ -10,7 +10,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const { srcDir, distDir, entryDir, scriptsDir, componentsDir, pagesDir,  appsDir } = require("./paths");
+const {
+  srcDir, distDir, entryDir,
+  scriptsDir, componentsDir, pagesDir,
+  layoutsDir, typesDir, appsDir
+} = require("./paths");
 const { generateDevWebpageRules, generateStyleRules, generateScriptRules } = require("./generate-rules");
 
 const isDev = process.env.NODE_ENV === "development";
@@ -35,6 +39,8 @@ const commonConfig = {
       "@entry": entryDir,
       "@components": componentsDir,
       "@pages": pagesDir,
+      "@layouts": layoutsDir,
+      "@my-types": typesDir,
       "@apps": appsDir,
       "@styling": path.resolve(srcDir, "styling"),
     },
