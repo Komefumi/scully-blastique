@@ -1,4 +1,4 @@
-# scully-blastoise
+# scully-blastique
 
 A boilerplate / starter that provides for react, typescript, and does not limit to working solely with that ecosystem.
 You can develop single page and multi-page applications.
