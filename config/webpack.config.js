@@ -11,10 +11,10 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const {
-  srcDir, distDir, entryDir,
-  scriptsDir, assetsDir, componentsDir,
-  pagesDir, layoutsDir, typesDir,
-  appsDir,
+  srcDir, distDir, utilsDir,
+  entryDir, scriptsDir, assetsDir,
+  componentsDir, uiComponentsDir, pagesDir,
+  layoutsDir, typesDir, appsDir,
 } = require("./paths");
 const { generateDevWebpageRules, generateStyleRules, generateScriptRules } = require("./generate-rules");
 
@@ -38,8 +38,10 @@ const commonConfig = {
       "@src": path.resolve(__dirname, "..", "src"),
       "@assets": assetsDir,
       "@js": scriptsDir,
+      "@utils": utilsDir,
       "@entry": entryDir,
       "@components": componentsDir,
+      "@ui": uiComponentsDir,
       "@pages": pagesDir,
       "@layouts": layoutsDir,
       "@my-types": typesDir,
