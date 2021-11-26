@@ -5,7 +5,7 @@ export function generateCSSTransitionClassNamesForModule(
   baseClassName: string
 ): IObjectStringKeysAndValues {
   const be = `${baseClassName}_enter`;
-  const bea = `${be}_active}`;
+  const bea = `${be}_active`;
   const bed = `${be}_done`;
   const bx = `${baseClassName}_exit`;
   const bxa = `${bx}_active`;
