@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import IndexApp from "@apps/IndexApp";
 
-import "@styling/index.less";
+import "@styling/index.scss";
 
 DOMRender(
   <BrowserRouter>

@@ -30,16 +30,21 @@ module.exports = {
     const presets = ["env", "react", "typescript"].map(
       (suffix) => `@babel/preset-${suffix}`
     );
-    const plugins = ["react-refresh/babel"]
+    const plugins = ["react-refresh/babel"];
 
     // @ts-ignore
-    const generateRule = (test, presets, plugins=[], custom = {
-      babelPresetsLevel: [],
-      babelPluginsLevel: [],
-      babelOptionsLevel: {},
-      useLevel: {},
-      baseLevel: {},
-    }) => {
+    const generateRule = (
+      test,
+      presets,
+      plugins = [],
+      custom = {
+        babelPresetsLevel: [],
+        babelPluginsLevel: [],
+        babelOptionsLevel: {},
+        useLevel: {},
+        baseLevel: {},
+      }
+    ) => {
       return {
         test,
         exclude: /node_modules/,
@@ -67,13 +72,13 @@ module.exports = {
       generateRule(
         /\.jsx$/,
         [...presets.slice(0, 2)],
-        [!isProd && presets[0]].filter(Boolean),
+        [!isProd && presets[0]].filter(Boolean)
       ),
       generateRule(/\.ts$/, [presets[0], presets[2]], []),
       generateRule(
         /\.tsx$/,
         [...presets.slice(0, 3)],
-        [!isProd && plugins[0]].filter(Boolean),
+        [!isProd && plugins[0]].filter(Boolean)
       ),
     ];
   },
@@ -101,6 +106,10 @@ module.exports = {
         },
       ];
     };
-    return [...generateRule("css"), ...generateRule("less", ["less-loader"])];
+    return [
+      ...generateRule("css"),
+      ...generateRule("less", ["less-loader"]),
+      ...generateRule("scss", ["sass-loader"]),
+    ];
   },
 };

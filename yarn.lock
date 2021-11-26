@@ -2300,7 +2300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.5.2":
+"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.2":
   version: 3.5.2
   resolution: "chokidar@npm:3.5.2"
   dependencies:
@@ -6070,6 +6070,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sass-loader@npm:^12.3.0":
+  version: 12.3.0
+  resolution: "sass-loader@npm:12.3.0"
+  dependencies:
+    klona: ^2.0.4
+    neo-async: ^2.6.2
+  peerDependencies:
+    fibers: ">= 3.1.0"
+    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0
+    sass: ^1.3.0
+    webpack: ^5.0.0
+  peerDependenciesMeta:
+    fibers:
+      optional: true
+    node-sass:
+      optional: true
+    sass:
+      optional: true
+  checksum: b755e6d5ceddb70d54334b53f70546b4afc9af5f9704cc0e2666894d0568bdaeccb2b07056bd35465c22c51c55e1d790023b32b9aa0977080403036ef6c47b29
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.43.5":
+  version: 1.43.5
+  resolution: "sass@npm:1.43.5"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+  bin:
+    sass: sass.js
+  checksum: 4dc71400a6e21e0aa841ba69f536ba242b956229fea88acc3faafa44114ca59496a4b153704175c36ac835e33934059dc8d843638c8952f4f1220adbef54c988
+  languageName: node
+  linkType: hard
+
 "sax@npm:^1.2.4":
   version: 1.2.4
   resolution: "sax@npm:1.2.4"
@@ -6150,6 +6183,8 @@ __metadata:
     react-refresh: ^0.11.0
     react-router-dom: 6
     rimraf: ^3.0.2
+    sass: ^1.43.5
+    sass-loader: ^12.3.0
     style-loader: ^3.3.1
     typescript: ^4.5.2
     webpack: ^5.64.1
