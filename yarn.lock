@@ -1344,10 +1344,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mental-rebuilders/styles-reset-library@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@mental-rebuilders/styles-reset-library@npm:1.1.2"
-  checksum: 5b33cac5bd8fdf659546c7403e36016cf2ad2aefc3a16800e971a1ed67196d0a3a4364fc896220c8cbdd133285ba6d3fa48631adb2fba6a50038f45341ec1de5
+"@mental-rebuilders/styles-reset-library@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@mental-rebuilders/styles-reset-library@npm:2.0.0"
+  checksum: 02020c056c66897def950f1112391f2e5bdd8838a19cde6c3b65066cbc69a04428b9edf918d8aaf0aa92b23e58c34b2c4eeaf16438a77cd451f449b47a785c0b
   languageName: node
   linkType: hard
 
@@ -6129,7 +6129,7 @@ __metadata:
     "@babel/preset-env": ^7.16.4
     "@babel/preset-react": ^7.16.0
     "@babel/preset-typescript": ^7.16.0
-    "@mental-rebuilders/styles-reset-library": ^1.1.2
+    "@mental-rebuilders/styles-reset-library": ^2.0.0
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.2
     "@types/react": ^17.0.36
     "@types/react-dom": ^17.0.11
