@@ -1,5 +1,5 @@
 {
-  "name": "scully-blastoise",
+  "name": "scully-blastique",
   "scripts": {
     "dev-start": "webpack serve -c ./config/webpack.config.js --node-env development",
     "build-bundle": "webpack -c ./config/webpack.config.js --node-env production",
