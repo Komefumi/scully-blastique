@@ -2,5 +2,6 @@ declare module "*.less";
 declare module "*.css";
 
 declare module "*.png";
-declare module "*.jpe?g";
+declare module "*.jpg";
+declare module "*.jpeg";
 declare module "*.svg";
