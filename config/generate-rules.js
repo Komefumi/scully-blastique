@@ -9,16 +9,26 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { webpageDir } = require("./paths");
 
 // @ts-ignore
-const generateCssModuleLoaderRule = (importLoaders) => {
-  return {
+const generateCssModuleLoaderRule = (importLoaders, cssModules) => {
+  const config = {
     loader: "css-loader",
     options: {
       importLoaders,
+      /*
       modules: {
         localIdentName: "[path][name]__[local]--[hash:base64:5]",
       },
+      */
     },
   };
+
+  if (cssModules) {
+    config.options.modules = {
+      localIdentName: "[path][name]__[local]--[hash:base64:5]",
+    };
+  }
+
+  return config;
 };
 
 module.exports = {
@@ -92,9 +102,7 @@ module.exports = {
     // @ts-ignore
     const generateUse = (forCSSModules = false, moreLoaders = []) => [
       isProd ? MiniCssExtractPlugin.loader : "style-loader",
-      forCSSModules
-        ? generateCssModuleLoaderRule(moreLoaders.length)
-        : "css-loader",
+      generateCssModuleLoaderRule(moreLoaders.length, forCSSModules),
       ...moreLoaders,
     ];
     // @ts-ignore
