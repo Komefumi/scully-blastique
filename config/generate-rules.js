@@ -8,12 +8,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const { webpageDir } = require("./paths");
 
-const cssModuleLoaderRule = {
-  loader: "css-loader",
-  options: {
-    importLoaders: 1,
-    modules: true,
-  },
+// @ts-ignore
+const generateCssModuleLoaderRule = (importLoaders) => {
+  return {
+    loader: "css-loader",
+    options: {
+      importLoaders,
+      modules: {
+        localIdentName: "[path][name]__[local]--[hash:base64:5]",
+      },
+    },
+  };
 };
 
 module.exports = {
@@ -87,7 +92,9 @@ module.exports = {
     // @ts-ignore
     const generateUse = (forCSSModules = false, moreLoaders = []) => [
       isProd ? MiniCssExtractPlugin.loader : "style-loader",
-      forCSSModules ? cssModuleLoaderRule : "css-loader",
+      forCSSModules
+        ? generateCssModuleLoaderRule(moreLoaders.length)
+        : "css-loader",
       ...moreLoaders,
     ];
     // @ts-ignore
@@ -97,19 +104,19 @@ module.exports = {
       return [
         {
           test: regularStyleRegex,
-          use: generateUse(isProd, moreLoaders),
+          use: generateUse(false, moreLoaders),
           exclude: cssModuleRegex,
         },
         {
           test: cssModuleRegex,
-          use: generateUse(isProd, moreLoaders),
+          use: generateUse(true, moreLoaders),
         },
       ];
     };
     return [
       ...generateRule("css"),
       ...generateRule("less", ["less-loader"]),
-      ...generateRule("scss", ["sass-loader"]),
+      ...generateRule("scss", ["resolve-url-loader", "sass-loader"]),
     ];
   },
 };

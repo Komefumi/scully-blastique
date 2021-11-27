@@ -1344,10 +1344,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mental-rebuilders/styles-reset-library@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@mental-rebuilders/styles-reset-library@npm:2.0.0"
-  checksum: 02020c056c66897def950f1112391f2e5bdd8838a19cde6c3b65066cbc69a04428b9edf918d8aaf0aa92b23e58c34b2c4eeaf16438a77cd451f449b47a785c0b
+"@mental-rebuilders/styles-reset-library@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@mental-rebuilders/styles-reset-library@npm:2.0.1"
+  checksum: b3b3f72dba43eecb899a4dda0a77b7db5c1ebe393321ee4e8f72666d554f26d1c6b21a9d9ac9b4b6b9d2bf907de4a561944e755c7f44272efa8cd809d720e446
   languageName: node
   linkType: hard
 
@@ -1779,6 +1779,16 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: 9d0de73b73cb6ea8ccd8263a8144d9e2c4b6af90ea0c429997538af0ebbe83c5addecee814b2a7f91f7f615d0bd1547cc7137b3fa236ce058adc64feccee850b
+  languageName: node
+  linkType: hard
+
+"adjust-sourcemap-loader@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "adjust-sourcemap-loader@npm:4.0.0"
+  dependencies:
+    loader-utils: ^2.0.0
+    regex-parser: ^2.2.11
+  checksum: d524ae23582f41e2275af5d88faab7a9dc09770ed588244e0a76d3196d0d6a90bf02760c71bc6213dbfef3aef4a86232ac9521bfd629752c32b7af37bc74c660
   languageName: node
   linkType: hard
 
@@ -5618,6 +5628,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss@npm:^8.2.14":
+  version: 8.4.3
+  resolution: "postcss@npm:8.4.3"
+  dependencies:
+    nanoid: ^3.1.30
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.1
+  checksum: fbc0d43380c2d7ee905081577c79b18a341a3445d34211385c33d57cc38f3abe6859b2ad94b96f41bb4107133a1cd5f317d82bb3f603280433f1dcf5dc62acb5
+  languageName: node
+  linkType: hard
+
 "postcss@npm:^8.2.15, postcss@npm:^8.3.5":
   version: 8.3.11
   resolution: "postcss@npm:8.3.11"
@@ -5896,6 +5917,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regex-parser@npm:^2.2.11":
+  version: 2.2.11
+  resolution: "regex-parser@npm:2.2.11"
+  checksum: 78200331ec0cc372302d287a4946c38681eb5fe435453fca572cb53cac0ba579e5eb3b9e25eac24c0c80a555fb3ea7a637814a35da1e9bc88e8819110ae5de24
+  languageName: node
+  linkType: hard
+
 "regexp.prototype.flags@npm:^1.2.0":
   version: 1.3.1
   resolution: "regexp.prototype.flags@npm:1.3.1"
@@ -5985,6 +6013,19 @@ __metadata:
   version: 5.0.0
   resolution: "resolve-from@npm:5.0.0"
   checksum: 4ceeb9113e1b1372d0cd969f3468fa042daa1dd9527b1b6bb88acb6ab55d8b9cd65dbf18819f9f9ddf0db804990901dcdaade80a215e7b2c23daae38e64f5bdf
+  languageName: node
+  linkType: hard
+
+"resolve-url-loader@npm:next":
+  version: 5.0.0-beta.1
+  resolution: "resolve-url-loader@npm:5.0.0-beta.1"
+  dependencies:
+    adjust-sourcemap-loader: ^4.0.0
+    convert-source-map: ^1.7.0
+    loader-utils: ^2.0.0
+    postcss: ^8.2.14
+    source-map: 0.6.1
+  checksum: d8ccc134722b54a7ad7f38487a6ce069071647efbb51d863867758c7a99c52953c56ee64139f986ea5a1cd778394b4f0731f7466f871f21907637639902fae6b
   languageName: node
   linkType: hard
 
@@ -6162,7 +6203,7 @@ __metadata:
     "@babel/preset-env": ^7.16.4
     "@babel/preset-react": ^7.16.0
     "@babel/preset-typescript": ^7.16.0
-    "@mental-rebuilders/styles-reset-library": ^2.0.0
+    "@mental-rebuilders/styles-reset-library": ^2.0.1
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.2
     "@types/react": ^17.0.36
     "@types/react-dom": ^17.0.11
@@ -6182,6 +6223,7 @@ __metadata:
     react-dom: ^17.0.2
     react-refresh: ^0.11.0
     react-router-dom: 6
+    resolve-url-loader: next
     rimraf: ^3.0.2
     sass: ^1.43.5
     sass-loader: ^12.3.0
@@ -6425,6 +6467,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-js@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "source-map-js@npm:1.0.1"
+  checksum: 22606113d62bbd468712b0cb0c46e9a8629de7eb081049c62a04d977a211abafd7d61455617f8b78daba0b6c0c7e7c88f8c6b5aaeacffac0a6676ecf5caac5ce
+  languageName: node
+  linkType: hard
+
 "source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
@@ -6435,17 +6484,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map@npm:0.6.1, source-map@npm:^0.6.0, source-map@npm:^0.6.1, source-map@npm:~0.6.0":
+  version: 0.6.1
+  resolution: "source-map@npm:0.6.1"
+  checksum: 59ce8640cf3f3124f64ac289012c2b8bd377c238e316fb323ea22fbfe83da07d81e000071d7242cad7a23cd91c7de98e4df8830ec3f133cb6133a5f6e9f67bc2
+  languageName: node
+  linkType: hard
+
 "source-map@npm:^0.5.0":
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
   checksum: 5dc2043b93d2f194142c7f38f74a24670cd7a0063acdaf4bf01d2964b402257ae843c2a8fa822ad5b71013b5fcafa55af7421383da919752f22ff488bc553f4d
-  languageName: node
-  linkType: hard
-
-"source-map@npm:^0.6.0, source-map@npm:^0.6.1, source-map@npm:~0.6.0":
-  version: 0.6.1
-  resolution: "source-map@npm:0.6.1"
-  checksum: 59ce8640cf3f3124f64ac289012c2b8bd377c238e316fb323ea22fbfe83da07d81e000071d7242cad7a23cd91c7de98e4df8830ec3f133cb6133a5f6e9f67bc2
   languageName: node
   linkType: hard
 

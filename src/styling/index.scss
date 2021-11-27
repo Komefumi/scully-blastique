@@ -1,3 +1,6 @@
 @import "~@mental-rebuilders/styles-reset-library/lib/base-reset.scss";
+@import "~@mental-rebuilders/styles-reset-library/lib/utils.scss";
 
-
+a {
+  @extend .link-reset;
+}
