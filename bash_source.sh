@@ -1,6 +1,11 @@
+# Bash
+alias ssb="source ~/.bash_profile"
+
 # FZF
 
 export FZF_DEFAULT_COMMAND='fd --type f'
+
+alias v="vim"
 
 vf() {
   output=$(fzf)
@@ -33,6 +38,9 @@ alias branch="git branch"
 alias gb="branch"
 alias status="git status"
 alias gs="git status"
+
+alias add="git add"
+alias ga="add"
 
 commit() {
   git commit -m "$*"
