@@ -50,3 +50,5 @@ alias gm="commit"
 
 alias diff="git diff"
 alias gd="git diff"
+
+alias push-all="git push --all"
