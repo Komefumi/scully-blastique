@@ -2,8 +2,11 @@
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-open() {
-  vim $(fzf)
+vf() {
+  output=$(fzf)
+  if [ -n "$output" ]; then
+    vim $output
+  fi
 }
 
 alias o="open"
