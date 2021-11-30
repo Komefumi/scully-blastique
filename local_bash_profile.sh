@@ -46,10 +46,13 @@ merge() {
   git merge "$1"
 }
 
-clear-all-changes() {
-  git checkout -- .
-}
+#
+#clear-all-changes() {
+#  git checkout -- "."
+#}
 
-push-all() {
+___internal_push_all() {
   git push --all
 }
+
+alias push-all="___internal_push_all"
