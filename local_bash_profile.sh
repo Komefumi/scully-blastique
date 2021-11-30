@@ -49,3 +49,7 @@ merge() {
 clear-all-changes() {
   git checkout -- .
 }
+
+push-all() {
+  git push --all
+}
