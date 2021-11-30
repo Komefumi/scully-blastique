@@ -39,3 +39,6 @@ commit() {
 }
 
 alias gm="commit"
+
+alias diff="git diff"
+alias gd="git diff"
