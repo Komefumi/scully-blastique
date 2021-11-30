@@ -43,5 +43,9 @@ alias diff="git diff"
 alias push-all="git push --all"
 
 merge() {
-  git merge -b "$1"
+  git merge "$1"
+}
+
+clear-all-changes() {
+  git checkout -- .
 }
