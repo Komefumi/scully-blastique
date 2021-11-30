@@ -5,8 +5,6 @@ alias ssb="source ~/.bash_profile"
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-alias v="vim"
-
 vf() {
   output=$(fzf)
   if [ -n "$output" ]; then
@@ -33,22 +31,17 @@ alias s="search"
 # Git helpers
 
 alias checkout="git checkout"
-alias gk="checkout"
 alias branch="git branch"
-alias gb="branch"
 alias status="git status"
-alias gs="git status"
-
 alias add="git add"
-alias ga="add"
 
 commit() {
   git commit -m "$*"
 }
 
-alias gm="commit"
-
 alias diff="git diff"
-alias gd="git diff"
-
 alias push-all="git push --all"
+
+merge() {
+  git merge -b "$1"
+}
