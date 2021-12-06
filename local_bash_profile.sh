@@ -51,3 +51,17 @@ ___internal_push_all() {
 }
 
 alias push-all="___internal_push_all"
+
+# NPM helpers
+
+nrun() {
+  npm run "$*"
+}
+
+nadd() {
+  npm install $*
+}
+
+ndad() {
+  npm install --save-dev $*
+}
