@@ -45,7 +45,7 @@ module.exports = {
     const presets = ["env", "react", "typescript"].map(
       (suffix) => `@babel/preset-${suffix}`
     );
-    const plugins = ["react-refresh/babel"];
+    const plugins = [require.resolve("react-refresh/babel")];
 
     // @ts-ignore
     const generateRule = (

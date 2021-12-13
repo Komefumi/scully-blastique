@@ -65,6 +65,10 @@ const commonConfig = {
   ],
 };
 
+const devScriptRules = generateScriptRules(false);
+
+console.log(JSON.stringify(devScriptRules, null, 2));
+
 const devConfig = {
   output: {
     filename: "[name].bundle.js",
@@ -80,7 +84,7 @@ const devConfig = {
   },
   module: {
     rules: [
-      ...generateScriptRules(false),
+      ...devScriptRules,
       ...generateStyleRules(false),
     ],
   },
